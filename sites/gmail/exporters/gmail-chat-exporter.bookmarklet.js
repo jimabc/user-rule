@@ -4,13 +4,13 @@ javascript:
         MIN_TIMEOUT_MILLISECONDS = 500,
         basicUrl = '',
         chatLinks = [],
-        // Workaround for the basic version of Gmail limiting the chat results.
+        /* Workaround for the basic version of Gmail limiting the chat results. */
         checkForMore = true,
         resultWindow;
         
-    // Main
+    /* Main */
     (function(){
-        // Get the url to the basic html version of Gmail
+        /* Get the url to the basic html version of Gmail */
         getBasicUrl(function(url){
             var contact = prompt("Enter the name of the contact", ""),
                 qs = '?s=q&q=' + '"chat with ' + contact + '"' + '&nvp_site_mail=Search+Mail';
@@ -55,9 +55,11 @@ javascript:
                 }
             }
 
-            // The basic html version of Gmail limits the number of 
-            // chat search results.  The workaround is to manually 
-            // increment the querystring's page result index.
+            /*  
+                The basic html version of Gmail limits the number of 
+                chat search results.  The workaround is to manually 
+                increment the querystring's page result index.
+            */
             if (nextUrl.length === 0 && checkForMore){
                 var index = url.indexOf('&st=');
 
@@ -93,7 +95,7 @@ javascript:
         });
     };
     
-    // Output
+    /* Output */
     function writeChat(txt){
         resultWindow.document.getElementById('chatexporter_Chats').innerHTML += txt;
     };
@@ -110,7 +112,7 @@ javascript:
         resultWindow.document.getElementById('chatexporter_Temp').innerHTML = txt;
     };
     
-    // Utilities
+    /* Utilities */
     function getBasicUrl(callback){
         getHtml("?ui=html&amp;zy=a", function(html){
             var toFind = '<base href="';
