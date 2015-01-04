@@ -47,7 +47,7 @@ javascript:
             anchors = resultWindow.document.getElementsByTagName('a');
 
             for (var i = 0, len = anchors.length; i < len; ++i){
-                if (anchors[i].href.indexOf('?&v=c&s=q&q=') >= 0){
+                if (anchors[i].href.indexOf('&v=c&s=q') >= 0){
                     chatLinks.push(basicUrl + getQueryString(anchors[i]));
                     checkForMore = true;
                 }else if(anchors[i].innerHTML.indexOf('Older ') >= 0){
